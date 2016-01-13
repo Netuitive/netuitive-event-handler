@@ -1,11 +1,14 @@
-.. netuitive-event-handler
-.. README.rst
-
 Netuitive-event-handler
 =======================
+Netuitive Event Handler is a CLI for posting external events to Netuitive.
+It is designed to be used from Nagios, Icinga, Sensu, and other monitoring systems.
 
-*Netuitive Event Handler is a CLI for posting external events
-to Netuitive. It is designed to be used from Nagios, Icinga, Sensu, and other monitoring systems.
+
+Build
+-----
+* Get a functioning [Go](https://golang.org) environment
+* Put this code in $GOPATH/src/github.com/netuitive/netuitive-event-handler
+* Run make
 
 
 Installation
@@ -17,7 +20,7 @@ Installation
 /etc/netuitive/netuitive-event-handler.yaml example
 -------------------------------------------
     apikey: DEMOab681D46bf5616dba8337c85DEMO
-    url: "https://api.app.netuitive.com/ingest/events"
+    url: "https://demoapi.app.netuitive.com/ingest/events"
 
 
 Nagios Configuration
@@ -36,4 +39,6 @@ Nagios Configuration
         command_name    notify-service-by-netuitive-event
         command_line    /bin/netuitive-event-handler -s Nagios -e "$HOSTALIAS$" -t "Service $SERVICEDESC$ is $SERVICESTATE$" -l "$SERVICESTATE$"  -m "Service $SERVICEDESC$ is $SERVICESTATE$ - Info: $SERVICEOUTPUT$"
     }
+
+
 
