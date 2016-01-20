@@ -93,17 +93,17 @@ func init() {
 	RootCmd.PersistentFlags().StringVarP(&APIkey, "apikey", "a", "", " API Key if not otherwise specified (optional)")
 	RootCmd.PersistentFlags().StringVarP(&APIurl, "url", "u", "https://api.app.netuitive.com/ingest/events", " API URL if not otherwise specified (optional)")
 
-	RootCmd.PersistentFlags().StringVarP(&element, "element", "e", "", "Element FQN for the event")
-	RootCmd.PersistentFlags().StringVarP(&title, "title", "t", "", "Title of the event")
-	RootCmd.PersistentFlags().StringVarP(&message, "message", "m", "", "Message text of the event")
-	RootCmd.PersistentFlags().StringVarP(&level, "level", "l", "", "Level of the event")
+	RootCmd.Flags().StringVarP(&element, "element", "e", "", "Element FQN for the event")
+	RootCmd.Flags().StringVarP(&title, "title", "t", "", "Title of the event")
+	RootCmd.Flags().StringVarP(&message, "message", "m", "", "Message text of the event")
+	RootCmd.Flags().StringVarP(&level, "level", "l", "", "Level of the event")
 
 	//	RootCmd.PersistentFlags().StringVarP(&eventType, "type", "", "INFO", "Type of the event (optional)")
 	eventType = "INFO"
 
 	RootCmd.PersistentFlags().StringVarP(&source, "source", "s", "netuitive-event-handler", "Source of the event (optional)")
 
-	RootCmd.PersistentFlags().StringVarP(&tags, "tags", "", "", "Tags for the event (optional) Example: tag1:value1,tag2:value2")
+	RootCmd.Flags().StringVarP(&tags, "tags", "", "", "Tags for the event (optional) Example: tag1:value1,tag2:value2")
 
 	RootCmd.PersistentFlags().BoolVarP(&debug, "debug", "d", false, "enable debug")
 
