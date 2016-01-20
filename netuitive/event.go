@@ -88,6 +88,9 @@ func PostEvent(apikey string, apiurl string, source string, element string, even
 		b, _ := json.MarshalIndent(es, "", "    ")
 		fmt.Println("=== JSON PAYLOAD ===")
 		fmt.Println(string(b) + "\n")
+		fmt.Println("=== JSON PAYLOAD ===\n\n")
+		fmt.Println("url = " + url)
+
 	}
 
 	req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonStr))
@@ -96,10 +99,18 @@ func PostEvent(apikey string, apiurl string, source string, element string, even
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
+
 		return err
 	}
 
 	defer resp.Body.Close()
+
+	if debug {
+		fmt.Println("response Status:\n", resp.Status, "\n")
+		fmt.Println("response Headers:\n", resp.Header, "\n")
+		body, _ := ioutil.ReadAll(resp.Body)
+		fmt.Println("response Body:\n", string(body), "\n")
+	}
 
 	if strings.Contains(resp.Status, "OK") {
 
@@ -116,6 +127,3 @@ func PostEvent(apikey string, apiurl string, source string, element string, even
 	}
 	return nil
 }
-
-// netuitive.Event(
-//                 options.element, 'INFO', options.title, options.message, options.level.upper(), source=source)
