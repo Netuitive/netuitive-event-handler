@@ -41,7 +41,7 @@ var tags string
 var RootCmd = &cobra.Command{
 	Use:   "netuitive-event-handler",
 	Short: "Post events to Netuitive from the command line",
-	Long: `Netuitive Event Handler is a CLI for posting external events
+	Long: Name + " (" + Version + ")\n\n" + `Netuitive Event Handler is a CLI for posting external events
 to Netuitive. It is designed to be used from Nagios, Icinga, Sensu, and other monitoring systems.`,
 
 	RunE: func(cmd *cobra.Command, args []string) error {

@@ -58,13 +58,8 @@ var pipeJSON *sensuPipe
 // stdinCmd represents the stdin command
 var stdinCmd = &cobra.Command{
 	Use:   "stdin",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Short: "Post events to Netuitive from the stdin pipe",
+	Long:  Name + " (" + Version + ")\n\n" + `Pipe in a properly formatted (sensu format) JSON payload`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		// TODO: Work your own magic here
 
@@ -82,7 +77,6 @@ to quickly create a Cobra application.`,
 		eventAction := pipeJSON.Action
 
 		element = pipeJSON.Client.Name
-		// elementAddress := pipeJSON.Client.Address
 
 		checkName := pipeJSON.Check.Name
 		checkCommand := pipeJSON.Check.Command
@@ -117,21 +111,6 @@ to quickly create a Cobra application.`,
 		tags = tags + ",occurrences:" + eventOccurrences
 		tags = tags + ",id:" + eventID
 		tags = tags + ",action:" + eventAction
-
-		// tag1:value1,tag2:value2
-
-		// if debug {
-		// 	fmt.Println("element = ", element)
-		// 	fmt.Println("status = ", status)
-		// 	fmt.Println("level = ", level)
-
-		// 	fmt.Println("title: \n    ", title)
-		// 	fmt.Println("message: \n    ", message)
-		// 	fmt.Println("tags: \n    ", tags)
-
-		// }
-
-		// os.Exit(0)
 
 		err := netuitive.PostEvent(viper.GetString("apikey"), viper.GetString("url"), source, element, eventType, title, message, level, tags, debug)
 
