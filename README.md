@@ -50,7 +50,7 @@ Sensu Configuration
       "handlers": {
         "netuitive-event-handler": {
           "type": "pipe",
-          "command": "/bin/netuitive-event-handlernetuitive-event-handler-linux stdin -s Sensu",
+          "command": "/bin/netuitive-event-handler stdin -s Sensu",
           "severities": [
             "critical",
             "ok"
