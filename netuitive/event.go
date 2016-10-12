@@ -112,7 +112,7 @@ func PostEvent(apikey string, apiurl string, source string, element string, even
 		fmt.Println("response Body:\n", string(body), "\n")
 	}
 
-	if strings.Contains(resp.Status, "OK") {
+	if strings.Contains(resp.Status, "OK") || strings.Contains(resp.Status, "Accepted") {
 
 		if debug {
 			fmt.Println("response Status:\n", resp.Status, "\n")
