@@ -112,9 +112,10 @@ func PostEvent(apikey string, apiurl string, source string, element string, even
 		fmt.Println("response Body:\n", string(body), "\n")
 	}
 
-	if strings.Contains(resp.Status, "OK") || strings.Contains(resp.Status, "Accepted") {
+	if resp.StatusCode == 202 {
 
 		if debug {
+			fmt.Println("response Status Code:\n", resp.StatusCode, "\n")
 			fmt.Println("response Status:\n", resp.Status, "\n")
 			fmt.Println("response Headers:\n", resp.Header, "\n")
 			body, _ := ioutil.ReadAll(resp.Body)
@@ -123,7 +124,7 @@ func PostEvent(apikey string, apiurl string, source string, element string, even
 
 	} else {
 		fmt.Printf("\n\n\nError posting to %s\n", url)
-		fmt.Errorf("Response: %s\n", resp.Status)
+		fmt.Errorf("Response: %d\n", resp.StatusCode)
 	}
 	return nil
 }
