@@ -12,8 +12,15 @@ Installing and Building the Netuitive Event Handler
 
 1. Setup a functioning [Go](https://golang.org) environment.
 1. Setup [Glide Package Manager for Go](https://glide.sh/).
-1. Move this code into $GOPATH/src/github.com/netuitive/netuitive-event-handler
-1. In the $GOPATH/src/github.com/netuitive/netuitive-event-handler directory, run `make setup && make`.
+1. Run the following command to download the code.
+
+        go get github.com/netuitive/netuitive-event-handler
+
+1. Run the following commands to build the binaries.
+
+        cd $GOPATH/src/github.com/netuitive/netuitive-event-handler
+        make setup
+        make
 
 ### Install
 
