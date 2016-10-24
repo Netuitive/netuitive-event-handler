@@ -11,11 +11,9 @@ Installing and Building the Netuitive Event Handler
 ### Build
 
 1. Setup a functioning [Go](https://golang.org) environment.
-1. Pass the following code into your Go environment:
-
-        $GOPATH/src/github.com/netuitive/netuitive-event-handler
-
-1. Run `make`.
+1. Setup [Glide Package Manager for Go](https://glide.sh/).
+1. Move this code into $GOPATH/src/github.com/netuitive/netuitive-event-handler
+1. In the $GOPATH/src/github.com/netuitive/netuitive-event-handler directory, run `make setup && make`.
 
 ### Install
 
@@ -37,14 +35,14 @@ Configuration
 Create Nagios command definitions as follows:
 
 #### Host Notification
-    
+
     define command{
             command_name    notify-host-by-netuitive-event
             command_line    /bin/netuitive-event-handler -s Nagios -e "$HOSTALIAS$" -t "Host $HOSTALIAS$ is $HOSTSTATE$" -l "$HOSTSTATE$"  -m "Host $HOSTALIAS$ is $HOSTSTATE$ - Info: $HOSTOUTPUT$"
         }
-        
+
 #### Service Notification
-    
+
     define command{
         command_name    notify-service-by-netuitive-event
         command_line    /bin/netuitive-event-handler -s Nagios -e "$HOSTALIAS$" -t "Service $SERVICEDESC$ is $SERVICESTATE$" -l "$SERVICESTATE$"  -m "Service $SERVICEDESC$ is $SERVICESTATE$ - Info: $SERVICEOUTPUT$"
