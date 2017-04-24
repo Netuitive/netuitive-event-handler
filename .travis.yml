@@ -1,0 +1,15 @@
+language: go
+install:
+- go get ./...
+- go get github.com/inconshreveable/mousetrap
+script: make
+deploy:
+  provider: releases
+  api_key:
+    secure: AJfOvOuAgBnjBcP9t/HWnppC25mPfapwYZXgTUtmhCS8ubOke0Rysleba+rWLKEs8O45GBy6tuWcok/bkJPPwMuxJzO5H2CkVRBA0WbvlkzghzQzNianWmtjCJxBG6pGIFDISHuvhthrkNQLXh3g51C59aK470oNNkaEcbF0h3a0welj7rUO7wDK4wP1IrzI0JbnKUD/Qsg/8kWJVKx7Q17lM4YVGLfv33GWS2SnUK5iwMI0NGJxWABCPPiQ0yO+uH2GmzPzyQEwy07v6a6XYiLS54sti0Mhs2n86WE7iar10NTp7ASdj2/HzlQyAszQZmbMktHrdxLH+DDcAy7a8FMUHOx0/GS7VlwP440BwHuNhP9G50t0usPXIK1+lz7tICWZk+52+aI4IfpILMgnAOtYWHcVMnXtlffTst2DGr1fFKmWfdPuXBN5V2npDJt/7k9VS4Yb/beYbyDAb1r53ZYW6kWOtww88mfMuDKMHXYmzxscWwG4mce7EJIcHnEf02rX62SVUewB44jm1jA37MuXiknOZ427lyPE98IVQdta8VR1nQEEKSUk0hQuuQRHCVlmyhyzcsTPqaTZy9402lFteLZWF74abyZweTI+5megrqRCe2NAlJpinYUf9pQ2LauVXNqeeZX6wGT/pZO14VKBPtFRkporW4F9agkZnwE=
+  file_glob: true
+  file: build/*
+  skip_cleanup: true
+  on:
+    tags: true
+    repo: Netuitive/netuitive-event-handler
