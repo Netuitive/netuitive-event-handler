@@ -1,6 +1,6 @@
 language: go
 install:
-- godep get
+- go get ./...
 - go get github.com/inconshreveable/mousetrap
 script: make
 deploy:
