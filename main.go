@@ -14,7 +14,7 @@
 
 package main
 
-import "github.com/netuitive/netuitive-event-handler/cmd"
+import "github.com/Netuitive/netuitive-event-handler/cmd"
 
 func main() {
 	cmd.Execute()
