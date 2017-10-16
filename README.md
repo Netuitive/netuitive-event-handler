@@ -19,15 +19,15 @@ Installing and Building the Netuitive Event Handler
 
 ### Install
 
-1. Download the event handler [here](http://repos.app.netuitive.com/cli-agent/index.html) and copy it to `/bin/netuitive-event-handler`.
+1. Download the event handler [here](https://github.com/Netuitive/netuitive-event-handler/releases) and copy it to `/bin/netuitive-event-handler`.
 1. Change permissions on the downloaded file to `755`:
 
         chmod 755 [the-downloaded-file]
 
 1. Configure the netuitive-event-handler.yaml file (defaul location is `/etc/netuitive/`) as desired. Example:
 
-        apikey: DEMOab681D46bf5616dba8337c85DEMO
-        url: "https://demoapi.app.netuitive.com/ingest/events"
+        apikey: "yourapikey"
+        url: "https://api.app.netuitive.com/ingest/events"
 
 Configuration
 --------------
