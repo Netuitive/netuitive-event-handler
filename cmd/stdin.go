@@ -24,7 +24,7 @@ import (
 
 	"golang.org/x/crypto/ssh/terminal"
 
-	"github.com/netuitive/netuitive-event-handler/netuitive"
+	"github.com/Netuitive/netuitive-event-handler/netuitive"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
